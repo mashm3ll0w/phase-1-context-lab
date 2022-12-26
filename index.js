@@ -37,6 +37,23 @@ function createTimeOutEvent(dateStamp){
 }
 
 
+function hoursWorkedOnDate(dateStamp){
+  const [startTime, endTime] = [
+      this.timeInEvents.find(time => {
+      if (time.date === dateStamp){
+        return time.hour
+      }
+    }),
+    this.timeOutEvents.find(time => {
+      if (time.date === dateStamp){
+        return time.hour
+      }
+    })
+  ]
+  return (endTime.hour - startTime.hour) / 100
+}
+
+
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
@@ -59,3 +76,19 @@ const allWagesFor = function () {
     return payable
 }
 
+
+
+// Testing data
+const charlesMash = createEmployeeRecord(["Charles", "Swaleh", "Cyber", 1200])
+const timeInCharles = createTimeInEvent.call(charlesMash, "2022-12-23 0900")
+const timeOutCharles = createTimeOutEvent.call(charlesMash, "2022-12-23 1900")
+const timeInCharlesSat = createTimeInEvent.call(charlesMash, "2022-12-24 1000")
+const timeOutCharlesSat = createTimeOutEvent.call(charlesMash, "2022-12-24 2200")
+
+const swalehMash = createEmployeeRecord(["Swaleh", "Charles", "Cyber", 1400])
+const timeInSwaleh = createTimeInEvent.call(swalehMash, "2022-12-23 0600")
+const timeOutSwaleh = createTimeOutEvent.call(swalehMash, "2022-12-23 2300")
+const timeInSwalehSat = createTimeInEvent.call(swalehMash, "2022-12-24 1100")
+const timeOutSwalehSat = createTimeOutEvent.call(swalehMash, "2022-12-24 2300")
+
+console.log(hoursWorkedOnDate.call(charlesMash, "2022-12-23"))
