@@ -57,6 +57,10 @@ function wagesEarnedOnDate(dateStamp){
   return hoursWorkedOnDate.call(this, dateStamp) * this.payPerHour
 }
 
+function findEmployeeByFirstName(srcArray, name){
+  return srcArray.find(record => record.firstName === name)
+}
+
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
@@ -96,3 +100,5 @@ const timeOutSwalehSat = createTimeOutEvent.call(swalehMash, "2022-12-24 2300")
 
 console.log(hoursWorkedOnDate.call(charlesMash, "2022-12-23"))
 console.log(wagesEarnedOnDate.call(charlesMash, "2022-12-23"))
+
+console.log(findEmployeeByFirstName([charlesMash, swalehMash], "Mash"))
