@@ -61,6 +61,10 @@ function findEmployeeByFirstName(srcArray, name){
   return srcArray.find(record => record.firstName === name)
 }
 
+function calculatePayroll(array){
+  let totalPayroll = array.reduce((acc, item) => acc + allWagesFor.call(item), 0)
+  return totalPayroll
+}
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
@@ -98,7 +102,4 @@ const timeOutSwaleh = createTimeOutEvent.call(swalehMash, "2022-12-23 2300")
 const timeInSwalehSat = createTimeInEvent.call(swalehMash, "2022-12-24 1100")
 const timeOutSwalehSat = createTimeOutEvent.call(swalehMash, "2022-12-24 2300")
 
-console.log(hoursWorkedOnDate.call(charlesMash, "2022-12-23"))
-console.log(wagesEarnedOnDate.call(charlesMash, "2022-12-23"))
-
-console.log(findEmployeeByFirstName([charlesMash, swalehMash], "Mash"))
+console.log(calculatePayroll([charlesMash, swalehMash]))
