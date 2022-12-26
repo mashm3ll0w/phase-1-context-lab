@@ -53,6 +53,9 @@ function hoursWorkedOnDate(dateStamp){
   return (endTime.hour - startTime.hour) / 100
 }
 
+function wagesEarnedOnDate(dateStamp){
+  return hoursWorkedOnDate.call(this, dateStamp) * this.payPerHour
+}
 
 
 /*
@@ -92,3 +95,4 @@ const timeInSwalehSat = createTimeInEvent.call(swalehMash, "2022-12-24 1100")
 const timeOutSwalehSat = createTimeOutEvent.call(swalehMash, "2022-12-24 2300")
 
 console.log(hoursWorkedOnDate.call(charlesMash, "2022-12-23"))
+console.log(wagesEarnedOnDate.call(charlesMash, "2022-12-23"))
